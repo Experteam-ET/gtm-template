@@ -15,5 +15,7 @@
 homepage: "https://tracking-expert.de/"
 documentation: "https://tracking-expert.de/#faqs"
 versions:
+  - sha: 267fa91510c74922119272d285b10709d5ff4a1a
+    changeNotes: added metadata.yml
   - sha: d333bf3450fda672da4e51a8d866a6c72c8774c0
-    changeNotes: Initial Version
+    changeNotes: init
