@@ -71,8 +71,12 @@ const setDefaultConsentState = require('setDefaultConsentState');
 const updateConsentState = require('updateConsentState');
 const getCookieValues = require('getCookieValues');
 const callInWindow = require('callInWindow');
+const getTimestampMillis = require('getTimestampMillis');
+const Math = require('Math');
 
-const postScriptUrl = 'https://api.experten.tools/js/etcmp.min.js';
+const cachingKey = Math.floor(getTimestampMillis() / 86400 / 1000);
+
+const postScriptUrl = 'https://api.experten.tools/js/etcmp.min.js?cache='+cachingKey;
 
 const consentCookieStatus = getCookieValues('ET_Consent').toString();
 const statsCookieStatus = getCookieValues('ET_Stats').toString();
@@ -117,8 +121,6 @@ function onSuccess() {
  *   directly correspond to Google consent types.
  */
 const onUserConsent = (consent) => {
-  log(consent);
-
   if (typeof consent === 'boolean') {
     const consentModeStates = {
       ad_storage: consent ? 'granted' : 'denied',
@@ -582,4 +584,4 @@ scenarios: []
 
 ___NOTES___
 
-Created on 20.2.2024, 09:26:08
+Created on 10.3.2024, 09:35:08
